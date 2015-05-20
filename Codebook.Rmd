@@ -1,0 +1,28 @@
+---
+title: "CodeBook"
+author: "Miguel Prata"
+date: "20 de Maio de 2015"
+output: html_document
+---
+
+#Introduction
+
+This is the codebook for the data set created for this assignement. The data set is called `tidy`.
+
+#Data dictionary
+
+**SubjectNumber**   -- Test subject number. Varies from 1 to 30.
+
+**Activity** -- Activity being performed while measurements were made. Can be:
+
+* Lying
+* Sitting
+* Standing
+* Walking
+* Walking Downstairs
+* Walking Upstairs
+
+The other columns contain all the variable means and standard deviations. Their names are the same as the ones in the **features.txt** (see README.Rmd). However, in order to use the `select` function in R, invalid character names were removed with `make.name`, so for example, the variable,
+
+**tBodyAcc-mean()-X** becomes **tBodyAcc.mean...X**
+

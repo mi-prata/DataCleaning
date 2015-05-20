@@ -5,6 +5,7 @@ library(dplyr)
 ###Importing the data <- must be extracted in the working directory
 #Features
 features = tbl_df(read.table("./UCI\ HAR\ Dataset/features.txt"))
+#Converts to character vector
 features <- as.character(features$V2)
 #Test data
 Xtest = tbl_df(read.table("./UCI\ HAR\ Dataset/test/X_test.txt"))
@@ -16,7 +17,7 @@ Xtrain = tbl_df(read.table("./UCI\ HAR\ Dataset/train/X_train.txt"))
 ytrain = tbl_df(read.table("./UCI\ HAR\ Dataset/train/y_train.txt"))
 subject_train = tbl_df(read.table("./UCI\ HAR\ Dataset/train/subject_train.txt"))
 
-#Creating a test and train data tbls
+#Creating a test and train data tbls with named columns
 subject_test <- rename(subject_test, SubjectNumber = V1)
 ytest <- rename(ytest, Activity = V1)
 
@@ -32,6 +33,7 @@ merged <- bind_rows(myTestData, myTrainData)
 #4 - Appropriately labels the data set with descriptive variable names. 
 ColunmnNames <- append(features,c("SubjectNumber","Activity"),0)
 #Remove invaled characters from variable names and name the columns
+#Necessary for the select function to  work
 holder <- make.names(ColunmnNames, unique = TRUE)
 names(merged) <- holder
 

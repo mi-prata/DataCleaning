@@ -1,0 +1,66 @@
+---
+title: "README"
+author: "Miguel Prata"
+date: "20 de Maio de 2015"
+output: html_document
+---
+
+#Introduction
+
+The script run_analysis.R performs data processing according to the instructions of the final course Project of the MOOC Getting and Cleaning Data, offered by the Johns Hopkins Univerrsity via Coursera.org. The purpose of this project is to collect, work with, and clean a data set:
+
+>One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: 
+
+>http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+>Here are the data for the project: 
+
+>https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+After downloading and extracting the data (in the working directory of the script) two folders called test and train exist in the main folder. The first one contains data used to calibrate the sensors and has 3 .txt files: 
+
+* subject_test.txt
+* X_test.txt
+* y_test.txt
+
+The train folder contains more 3 .txt tiles with "test" replaced by "train".
+
+The **subject_** files contain the number atributed to the test subject.
+The **X_** files contain 561 variables measured and estimated from the data collected by the sensors. The variables are unnamed and their name is in the **features.txt** file, located in the main folder.
+The **y_** files contain numbers related to the activities being performed when the measurements were made. The description of these activities is in the **activity_labels.txt**, in the main folder.
+
+The test subjects performing the activities are different in the test and train data sets. There are also folders called **Inertial signals**, which contain raw, unprocessed data from the sensors used by the authors to generate the **X_** files. I did not use any of the files in these folders, as it was not required.
+
+# The assignment
+
+It is required that the script performs the following tasks, but not in this specific order:
+
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+My script performs all of the above tasks and it is required the .zip file containing the data is downloaded and extracted in the working directory of the script before using it. To see the resulting data set just type `tidy` in the console after running the script. The tidy data set is written to **mydata.txt**.
+
+My code does not include gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroJerkMean in the tidy data set, as these variables do not have standard deviations, which was required.
+
+# Dependencies
+
+The data must be extracted and located in the working directory of the script, which must be changed in the first line of the code with the `setwd` command to whatever is appropriate in your own case:
+
+```{r}
+setwd("~/Dropbox/Minhas/Coursera/Data Science Specialization/3 - Getting and Cleaning Data/project")
+```
+
+The script uses the dplyr package:
+
+```{r}
+library(dplyr)
+```
+
+It must be installed and updated to version 0.4.1 To be able to update the package to this version it is necessary that R itself (not RStudio) is also updated. My R version is 3.2.0.
+
+
+
+

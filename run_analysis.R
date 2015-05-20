@@ -1,7 +1,6 @@
 #######      Code by Miguel Prata     #######
 setwd("~/Dropbox/Minhas/Coursera/Data Science Specialization/3 - Getting and Cleaning Data/project")
 library(dplyr)
-library(tidyr)
 
 ###Importing the data <- must be extracted in the working directory
 #Features

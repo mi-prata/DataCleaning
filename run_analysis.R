@@ -50,4 +50,4 @@ extracted <- tbl_df(select(merged, SubjectNumber, Activity, contains(".mean."),c
 
 #5 Creates a tidy data set with the average of each variable for each activity and each subject.
 tidy <- tbl_df(extracted %>%group_by(SubjectNumber, Activity) %>% summarise_each(funs(mean)))
-write.table(tidy, "mydata.txt",row.name=FALSE)
+write.table(tidy, "mydata.txt",row.name=FALSE, eol = "\r\n")

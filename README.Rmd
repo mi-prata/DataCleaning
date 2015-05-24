@@ -58,10 +58,17 @@ It is required that the script performs the following tasks, but not in this spe
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+# My script
+
 My script performs all of the above tasks and it is required that the .zip file containing the data is downloaded and extracted in the working directory of the script before using it. To see the resulting data set just type `tidy` in the console after running the script. The tidy data set is written to **mydata.txt**.
 
 My code does not include gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroJerkMean in the tidy data set, as these variables do not have standard deviations, which was required.
 
+You can also check the `tidy` data set via the generated text file instead, simply by using the `read.table` function, for example:
+
+`read.table("mydata.txt", header = TRUE, nrows=12)`
+
+loads the first 12 rows (therefore 6 activities for the first two subjects) and uses the column names of the .txt file.
 
 
 
